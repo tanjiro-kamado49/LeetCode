@@ -27,9 +27,10 @@ class Solution {
     public static TreeNode construct(int inorder[],int is,int ie,int postorder[],int ps,int pe,HashMap<Integer,Integer> h){
         if(ps>pe ||is>ie) return null;
         TreeNode root=new TreeNode(postorder[pe]);
-        int  ri=h.get(postorder[pe]);
-        root.left=construct(inorder, is, ri-1, postorder, ps, ps+ri-is-1, h);
-        root.right =construct(inorder,ri+1, ie, postorder, ps+ri-is, pe-1, h);
+        int  in=h.get(postorder[pe]);
+        int left=in-is;
+        root.left=construct(inorder, is, in-1, postorder, ps, ps+left-1, h);
+        root.right =construct(inorder,in+1, ie, postorder, ps+left, pe-1, h);
         return root;
         
         
