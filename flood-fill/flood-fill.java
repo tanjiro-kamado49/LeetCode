@@ -7,7 +7,7 @@ class Solution {
                 }
         }
         static boolean isValid(int[][]image,int n,int m,int pos_x,int pos_y,int cur_color,int newColor){
-                if(pos_x<0 ||pos_x>=n || pos_y<0 ||pos_y>=m || image[pos_x][pos_y]!=cur_color ||image[pos_x][pos_y]==newColor) 
+                if(pos_x<0 ||pos_x>=n || pos_y<0 ||pos_y>=m || image[pos_x][pos_y]!=cur_color ||image[pos_x][pos_y]==newColor ) 
                                         return false;
                 return true;
         }
