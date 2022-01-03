@@ -7,7 +7,7 @@ class Solution {
                     }
             }
     public int orangesRotting(int[][] grid) {
-          List<Point>q=new ArrayList<>();
+          LinkedList<Point>q=new LinkedList<>();
             int fresh=0;
             int n=grid.length;
             int m=grid[0].length;
