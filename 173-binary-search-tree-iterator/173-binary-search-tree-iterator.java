@@ -33,8 +33,7 @@ class BSTIterator {
     }
     
     public int next() {
-           int x=in.remove(0).intValue();
-            return x;
+            return in.remove(0);
             
         
     }
