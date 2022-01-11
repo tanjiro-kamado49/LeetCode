@@ -9,7 +9,9 @@ class Solution {
                 }
                 
                 public int compareTo(Pair o){
-                      return this.fq - o.fq;
+                     if(fq<o.fq) return 1;
+                     if(fq>o.fq) return -1;
+                    return 0;
                 }
         }
     public String frequencySort(String s) {
@@ -38,7 +40,7 @@ class Solution {
                     }
                     
             }
-            return ans.reverse().toString();
+            return ans.toString();
             
         
     }
