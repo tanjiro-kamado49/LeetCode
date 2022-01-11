@@ -36,8 +36,9 @@ class Solution {
             else
             {
                 Pair curr=pq.peek();
-                if(p.count>curr.count)
-                {
+                
+                    if(p.count>curr.count)
+                {   
                     pq.remove(curr);
                     pq.add(p);
                 
