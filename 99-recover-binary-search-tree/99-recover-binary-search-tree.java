@@ -26,7 +26,7 @@ class Solution {
     }
         public boolean find(TreeNode node){
                 if(node==null) return true;
-                if(!find(node.left)) return false;
+                if(find(node.left)==false) return false;
                 if(prev != null && prev.val > node.val){
                                  b = node;
                                   if(a == null){
