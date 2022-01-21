@@ -12,7 +12,6 @@ class Solution {
             int visited[]=new int[numCourses];
            int res=0;
             res=topology(graph,numCourses);
-            System.out.println();
             return res==numCourses;
         
     }
