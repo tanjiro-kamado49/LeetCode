@@ -1,5 +1,6 @@
 class Solution {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
+            //Created AdjacencyList
             LinkedList<Integer>graph[]=new LinkedList[numCourses];
             for(int i=0;i<numCourses;i++){
                     graph[i]=new LinkedList<>();
@@ -9,25 +10,27 @@ class Solution {
                     int v=prerequisites[i][1];
                     graph[v].add(u);
             }
-            int visited[]=new int[numCourses];
+            
            int res=0;
             res=topology(graph,numCourses);
             return res==numCourses;
         
     }
-        	public int topology(LinkedList<Integer>graph[],int size) {
-		int indegree[]=new int[size];
-		Queue<Integer>q=new ArrayDeque<>();
-		for(int i=0;i<graph.length;i++) {
-			for(int j=0;j<graph[i].size();j++) {
-				indegree[graph[i].get(j)]++;
-			}
+    public int topology(LinkedList<Integer>graph[],int size) {
+	     int indegree[]=new int[size];
+	     Queue<Integer>q=new ArrayDeque<>();
+            //finded indegree of each node
+	     for(int i=0;i<graph.length;i++) {
+		    for(int j=0;j<graph[i].size();j++) {
+			  indegree[graph[i].get(j)]++;
+		    }
 		}
-		for(int i=0;i<size;i++) {
-			//System.out.println("indegree["+i+"]"+indegree[i]);
-			if(indegree[i]==0) {
+            // added all nodes with 0 indegree
+	       for(int i=0;i<size;i++) {
+		     //System.out.println("indegree["+i+"]"+indegree[i]);
+	             if(indegree[i]==0) {
 				q.add(i);
-			}
+		     }
 		}
 		int res=0;
 		while(q.isEmpty()==false) {
