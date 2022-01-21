@@ -11,8 +11,7 @@ class Solution {
                     graph[v].add(u);
             }
             
-           int res=0;
-            res=topology(graph,numCourses);
+            int res=topology(graph,numCourses);
             return res==numCourses;
         
     }
