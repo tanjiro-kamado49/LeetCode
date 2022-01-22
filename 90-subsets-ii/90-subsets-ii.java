@@ -1,22 +1,33 @@
 class Solution {
-        List<List<Integer>> ans=new ArrayList<>();
     public List<List<Integer>> subsetsWithDup(int[] nums) {
+           Set<List<Integer>> set=new HashSet<>();
+             List<List<Integer>> res=new ArrayList<>();
+            List<Integer>empty=new ArrayList<>();
+            res.add(empty);
+            int n=nums.length;
             Arrays.sort(nums);
-            solve(nums,0,new ArrayList(),new HashSet());
-            return ans;
+            for(int i=0;i<n;i++){
+                    int el=nums[i];
+                    //System.out.println("element: "+el);
+                    int len=res.size();
+                    for(int j=0;j<len;j++){
+                           
+                            List<Integer>temp=new ArrayList<>(res.get(j));
+                              //System.out.println("prev: "+temp);
+                            temp.add(el);
+                            //System.out.println("not fixed: "+temp);
+                            if(set.contains(temp)==false){
+                                    //System.out.println("add"+temp);
+                                     res.add(temp);
+                                    set.add(temp);
+                                    
+                            }
+                               
+                            
+                    }
+            }
+           
+            return res;
         
     }
-        public  void solve(int nums[],int idx,List<Integer>cur,Set<List<Integer>> set){
-                if(idx>=nums.length){
-                        if(!set.contains(cur))
-                            ans.add(new ArrayList<>(cur));
-                        set.add(cur);
-                        return;
-                }
-                cur.add(nums[idx]);
-                solve(nums,idx+1,cur,set);
-                cur.remove(cur.size()-1);
-                solve(nums,idx+1,cur,set);
-                
-        }
 }
