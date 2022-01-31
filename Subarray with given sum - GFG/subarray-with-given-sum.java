@@ -35,7 +35,7 @@ class Solution
     static ArrayList<Integer> subarraySum(int[] arr, int n, int s) 
     {
         ArrayList<Integer>ans=new ArrayList<>();
-        int []ind=new int[2];
+        //int []ind=new int[2];
         
         int sum=0;
         sum+=arr[0];
@@ -51,10 +51,10 @@ class Solution
         for(int i=1;i<=n;i++){
              while(sum>s){
                 sum-=arr[start++];
-                ind[0]=start;
+                // ind[0]=start;
             }
             if(sum==s){
-                ans.add(ind[0]+1);
+                ans.add(start+1);
                 ans.add(i);
                 return ans;
             }
