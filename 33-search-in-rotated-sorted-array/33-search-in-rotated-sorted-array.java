@@ -5,7 +5,7 @@ class Solution {
             while(l<=r){
                     int mid=(l+r)/2;
                     if(nums[mid]==target) return mid;
-                    if(nums[mid]>=nums[l]){
+                    else if(nums[mid]>=nums[l]){
                             if(target<nums[mid] && target>=nums[l]){
                                     r=mid-1;
                             }
