@@ -13,12 +13,8 @@ class Solution {
             if(lists.length==0){
                     return null;
             }
-            // if(lists[0]==null) return null;
-            // int i=0;
-            // for( int i=0;i<lists.length)
             ListNode prev=lists[0];
             for(int i=1;i<lists.length;i++){
-                    // if(lists[i]==null) continue;
                     ListNode cur=lists[i];
                     prev=merge(prev,cur);
             }
@@ -38,14 +34,5 @@ class Solution {
                 
                 
         }
-//         int lengthList(ListNode head){
-//                 ListNode temp=head;
-//                 int l=0;
-//                 while(temp!=null){
-//                         l++;
-//                         temp=temp.next;
-//                 }
-//                 return l;
-                
-//         }
+
 }
