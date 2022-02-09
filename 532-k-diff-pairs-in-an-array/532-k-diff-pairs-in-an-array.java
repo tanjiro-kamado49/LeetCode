@@ -1,24 +1,23 @@
 class Solution {
     public int findPairs(int[] nums, int k) {
-            Arrays.sort(nums);
-            int count=0;
+            HashMap<Integer,Integer>hm=new HashMap<>();
             for(int i=0;i<nums.length;i++){
-                    if(i>0 && nums[i]==nums[i-1]) continue;
-                    if(binarysearch(nums,i+1,nums[i]+k)!=-1){
-                            count++;
-                    }
+                    hm.put(nums[i],hm.getOrDefault(nums[i],0)+1);
             }
+            int count=0;
+             for (int num: hm.keySet()){
+                     if(k==0){
+                             if(hm.get(num)>=2){
+                                     count++;
+                             }
+                     }
+                     else{
+                             if(hm.containsKey(num-k)){
+                                     count++;
+                             }
+                     }
+             }
             return count;
         
     }
-        int binarysearch(int []nums,int s,int target){
-                int e=nums.length-1;
-                while(s<=e){
-                        int mid=s+(e-s)/2;
-                        if(nums[mid]==target) return 1;
-                        else if(target>nums[mid])s=mid+1 ;
-                        else e=mid-1;
-                }
-                return -1;
-        }
 }
