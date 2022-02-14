@@ -21,14 +21,18 @@ class Solution {
             TreeNode node=null;
             if(root.left!=null){
                    node =root.left;
+                    // System.out.println("root.left-"+node.val);
                     while(node.right!=null) node=node.right;
             }
+           
             if(node!=null){
+                     // System.out.println("root.right-"+node.val);
                     TreeNode temp=root.right;
                     root.right=root.left;
                     root.left=null;
                     node.right=temp;
             }
+            // System.out.println("******");
         
     }
 }
