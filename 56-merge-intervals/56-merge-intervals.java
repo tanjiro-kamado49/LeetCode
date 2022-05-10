@@ -1,22 +1,40 @@
 class Solution {
+       // class Pair{
+       //          int x;
+       //         int y;
+       //         pair(int x,int y){
+       //                 this.x=x;
+       //                 this.y=y;
+       //         }
+       //  }
     public int[][] merge(int[][] intervals) {
-            List<int[]>ans=new ArrayList<>();
-            if(intervals.length==0 || intervals==null) return ans.toArray(new int [0][]);
-            Arrays.sort(intervals,(a,b)->a[0]-b[0]);
-            int start=intervals[0][0];
-            int end=intervals[0][1];
-            for(int [] i:intervals){
-                    if(i[0]<=end){
-                            end=Math.max(end,i[1]);
+            List<int[]>list=new ArrayList<>();
+             if(intervals.length==0 || intervals==null) return list.toArray(new int [0][]);
+            Arrays.sort(intervals,(a, b) -> a[0]- b[0]);
+            int st=intervals[0][0];
+            int ed=intervals[0][1];
+            for(int i=1;i<intervals.length;i++){
+                    if(intervals[i][0]<=ed){
+                            if(intervals[i][1]>ed){
+                                    ed=intervals[i][1];
+                            }
                     }
                     else{
-                            ans.add(new int[]{start,end});
-                            start=i[0];
-                            end=i[1];
+                            int pair[]=new int[2];
+                            pair[0]=st;
+                            pair[1]=ed;
+                            list.add(pair);
+                            st=intervals[i][0];
+                            ed=intervals[i][1];
                     }
             }
-            ans.add(new int[] {start,end});
-            return ans.toArray(new int[0][]);
+            int pair[]=new int[2];
+            pair[0]=st;
+            pair[1]=ed;
+            list.add(pair);
+            return list.toArray(new int[0][]);
+            
+            
             
         
     }
