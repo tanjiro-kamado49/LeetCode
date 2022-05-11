@@ -1,25 +1,22 @@
 class Solution {
     public double myPow(double x, int n) {
+            double ans=1.0;
             long nn=n;
-            double xn=x;
-            double res=func(xn,Math.abs(nn));
-            if(nn<0){
-                    return 1/res;
+            if(nn<0) nn*=-1;
+            while(nn>0){
+                    if(nn%2==1){
+                            ans=ans*x;
+                            nn=nn-1;
+                    }
+                    else{
+                            x=x*x;
+                            nn=nn/2;
+                    }
             }
-            return res;
-            
-           
-            
+            if(n<0){
+                    ans=1.0/(double)ans;
+            }
+            return ans;
         
     }
-        double func(double x,long n){
-           if(n==0) return 1.0;
-            double xn1= func(x,n/2);
-            double xn=xn1*xn1;
-            if(n%2!=0){
-                    xn=xn*x;
-            }
-            return xn;
-                
-        }
 }
