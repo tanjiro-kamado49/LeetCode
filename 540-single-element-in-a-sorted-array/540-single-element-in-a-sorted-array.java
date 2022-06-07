@@ -2,7 +2,7 @@ class Solution {
     public int singleNonDuplicate(int[] nums) {
         int low=0;
         int high=nums.length-1;
-        int n=nums.length;
+        // int n=nums.length;
         if(high==0) return nums[0];
         else if(nums[low]!=nums[low+1])  return nums[low];
         else if(nums[high]!=nums[high-1]) return nums[high];
