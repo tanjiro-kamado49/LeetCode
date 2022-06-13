@@ -23,7 +23,7 @@ class MedianFinder {
     public double findMedian() {
         double ans=0.0;
         if(max.size()==min.size()) {
-            System.out.println(max.peek()+" "+min.peek());
+            // System.out.println(max.peek()+" "+min.peek());
             ans=(double)(max.peek()+min.peek());
             return ans/2;
         }
