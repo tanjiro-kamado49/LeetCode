@@ -14,14 +14,16 @@ using namespace std;
        {
            if(arr1[i]<arr2[j])
                {
-                   int x = arr1[i++];
+                //   int x = arr1[i++];
+                i++;
                    index++;
                    if(index == k)
                        return arr1[i-1];
                }
            else
                {
-                   int x =arr2[j++];
+                //   int x =arr2[j++];
+                j++;
                    index++;
                    if(index == k)
                        return arr2[j-1];
@@ -29,14 +31,16 @@ using namespace std;
        }
        while(i<n)
        {
-            int x = arr1[i++];
+            // int x = arr1[i++];
+            i++;
                    index++;
                    if(index == k)
                        return arr1[i-1];
        }
        while(j<m)
        {
-          int x =arr2[j++];
+        //   int x =arr2[j++];
+        j++;
                    index++;
                    if(index == k)
                        return arr2[j-1];
