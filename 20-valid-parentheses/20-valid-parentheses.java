@@ -10,7 +10,7 @@ class Solution {
             char x=s.charAt(i++);
             if(x=='(' || x=='{' ||x=='['){
                 stack.push(x);
-                System.out.println(stack.peek());
+                // System.out.println(stack.peek());
             }
             else{
                 if(stack.isEmpty())return false;
