@@ -7,7 +7,7 @@ class Solution {
          char prev=s.charAt(0);
             int c=1;
             for(int j=1;j<s.length();j++){
-                if(s.charAt(j)!=s.charAt(j-1)){
+                if(s.charAt(j)!=prev){
                    ans.append(String.valueOf(c));
                     ans.append(prev);
                     prev=s.charAt(j);
