@@ -3,19 +3,21 @@ class Solution {
         if(n==1) return "1";
         if(n==2) return "11";
         String s=countAndSay(n-1);
-            String t="";
+        StringBuilder ans=new StringBuilder();
+         char prev=s.charAt(0);
             int c=1;
-            s=s+'$';
             for(int j=1;j<s.length();j++){
                 if(s.charAt(j)!=s.charAt(j-1)){
-                    t+= String.valueOf(c);
-                    t+=s.charAt(j-1);
+                   ans.append(String.valueOf(c));
+                    ans.append(prev);
+                    prev=s.charAt(j);
                     c=1;
                 }
                 else c++;
             }
-            s=t;
-        return s;  
+        ans.append(c);
+        ans.append(prev);
+        return ans.toString();  
     }
 }
 
