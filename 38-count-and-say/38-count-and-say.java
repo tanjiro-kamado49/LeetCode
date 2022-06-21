@@ -2,8 +2,7 @@ class Solution {
     public String countAndSay(int n) {
         if(n==1) return "1";
         if(n==2) return "11";
-        String s="11";
-        for(int i=3;i<=n;i++){
+        String s=countAndSay(n-1);
             String t="";
             int c=1;
             s=s+'$';
@@ -16,8 +15,6 @@ class Solution {
                 else c++;
             }
             s=t;
-        }
-        return s;
-        
+        return s;  
     }
 }
