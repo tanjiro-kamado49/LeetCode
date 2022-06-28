@@ -20,20 +20,19 @@ class Solution {
         if(root==null) return ans;
         q.add(root);
         int level=0;
+        boolean flag=true;
         while(!q.isEmpty()){
             int size=q.size();
-            List<Integer>l=new ArrayList<>();
-            while(size-->0){
-                 TreeNode temp=q.poll();
-                 l.add(temp.val);
+            List<Integer>l=new ArrayList<>(size);
+            for(int i=0;i<size;i++){
+                TreeNode temp=q.poll();
+                if(flag==true) l.add(temp.val);
+                else  l.add(0,temp.val);
                 if(temp.left!=null) q.add(temp.left);
                 if(temp.right!=null)q.add(temp.right);
             }
-            if(level%2!=0){
-                Collections.reverse(l);
-            }
             ans.add(l);
-            level++;
+            flag=!flag;
         }
         return ans;
     }
