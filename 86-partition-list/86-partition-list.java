@@ -17,17 +17,14 @@ class Solution {
         while(forward.next!=null){
             if(forward.next.val>=x){
                 forward=forward.next;
-                // System.out.println("greater"+low.next.val);
                 continue;
             }
             if(forward==low) {
                 low=low.next;
                 forward=forward.next;
-                 // System.out.println("equal"+low.next.val);
                 continue;
             }
             ListNode node=forward.next;
-            // ListNode forward_next=forward.next.next;
             forward.next=forward.next.next;
             ListNode next=low.next;
             low.next=node;
