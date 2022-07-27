@@ -1,29 +1,29 @@
 class Solution {
-    public static void permutation(int nums[],int mark[],Set<List<Integer>>ans, List<Integer>ds){
-        if(ds.size()==nums.length){
-            ans.add(new ArrayList<>(ds));
+    public static void swap(int x,int y,int nums[]){
+        int temp=nums[x];
+        nums[x]=nums[y];
+        nums[y]=temp;
+    }
+    
+    public static void  solve(int id,int[]nums,Set<List<Integer>>ans){
+        if(id==nums.length){
+            ArrayList<Integer>ds=new ArrayList<>();
+            for(int i=0;i<nums.length;i++){
+                ds.add(nums[i]);                
+            }
+            ans.add(ds);
             return ;
         }
-        for(int i=0;i<nums.length;i++){
-            if(mark[i]==0){
-                mark[i]=1;
-                ds.add(nums[i]);
-                permutation(nums,mark,ans,ds);
-                ds.remove(ds.size()-1);
-                mark[i]=0;
-            }
+        for(int i=id;i<nums.length;i++){
+            swap(i,id,nums);
+            solve(id+1,nums,ans);
+            swap(i,id,nums);
         }
     }
     public List<List<Integer>> permuteUnique(int[] nums) {
-        int mark[]=new int[nums.length];
         Set<List<Integer>>ans=new HashSet<>();
-        List<Integer>ds=new ArrayList<>();
-        permutation(nums,mark,ans,ds);
+        solve(0,nums,ans);
         List<List<Integer>>res=new ArrayList<>(ans);
-        // for(int i=0;i<ans.size();i++){
-        //     res.add(ans.get(i));
-        // }
         return res;
-        
     }
 }
